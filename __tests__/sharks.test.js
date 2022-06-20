@@ -64,3 +64,4 @@ describe('shark routes', () => {
     pool.end();
   });
 });
+('ab');
