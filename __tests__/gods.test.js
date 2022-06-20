@@ -46,6 +46,13 @@ describe('god routes', () => {
     expect(resp.body.drink).toEqual('cold brew');
     expect(resp.body.id).not.toBeUndefined();
   });
+  it('PUT /gods/:id should update/ edit reptile', async () => {
+    const resp = await (
+      await request(app).put('/gods/2')
+    ).setEncoding({ drink: 'Espresso Shots on the Rocks' });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.drink).toEqual('Espresso Shots on the Rocks');
+  });
   afterAll(() => {
     pool.end();
   });
