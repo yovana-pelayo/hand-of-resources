@@ -37,6 +37,17 @@ describe('shark routes', () => {
       },
     ]);
   });
+  it('get /sharks/:id should display shark detail', async () => {
+    const resp = await request(app).get('/sharks/4');
+    console.log('resp', resp.body);
+    expect(resp.status).toEqual(200);
+    expect(resp.body).toEqual({
+      id: '4',
+      name: 'lemon shark',
+      species: 'Negaprion brevirostris',
+      family: 'Carcharhinidae',
+    });
+  });
   afterAll(() => {
     pool.end();
   });
