@@ -39,7 +39,6 @@ describe('shark routes', () => {
   });
   it('get /sharks/:id should display shark detail', async () => {
     const resp = await request(app).get('/sharks/4');
-    console.log('resp', resp.body);
     expect(resp.status).toEqual(200);
     expect(resp.body).toEqual({
       id: '4',
@@ -47,6 +46,19 @@ describe('shark routes', () => {
       species: 'Negaprion brevirostris',
       family: 'Carcharhinidae',
     });
+  });
+  it(' POST /sharks should add new shark', async () => {
+    const resp = await request(app).post('/sharks').send({
+      name: 'whale shark',
+      species: 'Rhincodon typus',
+      family: 'Rhincodon typus',
+    });
+
+    expect(resp.status).toEqual(200);
+    expect(resp.body.name).toEqual('whale shark');
+    expect(resp.body.species).toEqual('Rhincodon typus');
+    expect(resp.body.family).toEqual('Rhincodon typus');
+    expect(resp.body.id).not.toBeUndefined();
   });
   afterAll(() => {
     pool.end();
