@@ -60,6 +60,13 @@ describe('shark routes', () => {
     expect(resp.body.family).toEqual('Rhincodon typus');
     expect(resp.body.id).not.toBeUndefined();
   });
+  it('PUT /sharks/:id should update/ edit shark', async () => {
+    const resp = await request(app)
+      .put('/sharks/2')
+      .send({ name: 'GHOST SHARK' });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.name).toEqual('GHOST SHARK');
+  });
   it('DELETE /sharks/:id should delete a shark', async () => {
     const resp = await request(app).delete('/sharks/1');
     expect(resp.status).toEqual(200);
