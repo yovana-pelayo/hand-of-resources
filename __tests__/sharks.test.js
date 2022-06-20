@@ -60,6 +60,12 @@ describe('shark routes', () => {
     expect(resp.body.family).toEqual('Rhincodon typus');
     expect(resp.body.id).not.toBeUndefined();
   });
+  it('DELETE /sharks/1 should delete a shark', async () => {
+    const resp = await request(app).post('/shark/1');
+    expect(resp.status).toEqual(200);
+    const { body } = await request(app).get('/sharks/1');
+    expect(body).toEqual('');
+  });
   afterAll(() => {
     pool.end();
   });
