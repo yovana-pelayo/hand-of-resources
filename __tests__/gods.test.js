@@ -53,9 +53,10 @@ describe('god routes', () => {
     expect(resp.status).toEqual(200);
     expect(resp.body.drink).toEqual('Espresso Shots on the Rocks');
   });
-  it('Delete /:id should delete god', async () => {
+  it('DELETE /gods/:id should delete a god', async () => {
     const resp = await request(app).delete('/gods/3');
     expect(resp.status).toEqual(200);
+
     const { body } = await request(app).get('/gods/3');
     expect(body).toEqual('');
   });
