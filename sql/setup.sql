@@ -3,6 +3,7 @@
 DROP TABLE if exists gods;
 DROP TABLE if exists sharks;
 DROP TABLE if exists zodiacs;
+
 CREATE TABLE gods (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR NOT NULL,
@@ -16,11 +17,12 @@ CREATE TABLE sharks (
     species VARCHAR NOT NULL,
     family VARCHAR NOT NULL
 );
- CREATE TABLE zodiacs (
+
+
+CREATE TABLE zodiacs ( 
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-   sign VARCHAR NOT NULL,
-   type VARCHAR NOT NULL
-  
+    name VARCHAR NOT NULL,
+    type VARCHAR NOT NULL
 );
 
 INSERT INTO gods (name, known, drink) 
@@ -34,4 +36,6 @@ VALUES('bull shark','Carcharhinus leucas','Carcharhinidae'),
         ('ghost shark','Callorhinchus milii',
         'Carcharhinidae'),
         ('tiger shark','Galeocerdo cuvier','Carcharhinidae'), ('lemon shark','Negaprion brevirostris','Carcharhinidae');
-        INSERT INTO zodiacs (sign, type) VALUES('Taurus','Earth'), ('Scorpio', 'Water'), ('Leo', 'Fire'), ('Libra','Air');
+
+
+INSERT INTO zodiacs (name, type) VALUES('Taurus','Earth'), ('Scorpio', 'Water'), ('Leo', 'Fire'), ('Libra','Air');
