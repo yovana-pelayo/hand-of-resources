@@ -22,9 +22,8 @@ describe('artists routes', () => {
       genre: 'country',
       hit: 'Die From A Broken Heart',
     });
-
     expect(resp.status).toEqual(200);
-    expect(resp.body.name).toEqual('Yovana Pelayo');
+    expect(resp.body.name).toEqual('Maddie & Tae');
     expect(resp.body.genre).toEqual('country');
     expect(resp.body.hit).toEqual('Die From A Broken Heart');
     expect(resp.body.id).not.toBeUndefined();
