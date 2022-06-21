@@ -17,6 +17,13 @@ describe('president routes', () => {
       { id: '4', name: 'Bush', start: '2001', final: '2009' },
     ]);
   });
+  it('PUT /presidents/:id should update/ edit president information', async () => {
+    const resp = await request(app)
+      .put('/presidents/2')
+      .send({ name: 'Trump J.' });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.name).toEqual('Trump J.');
+  });
   afterAll(() => {
     pool.end();
   });
