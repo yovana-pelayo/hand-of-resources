@@ -24,6 +24,20 @@ describe('president routes', () => {
     expect(resp.status).toEqual(200);
     expect(resp.body.name).toEqual('Trump J.');
   });
+
+  it(' POST /presidents should add new president', async () => {
+    const resp = await request(app).post('/presidents').send({
+      name: 'Clinton',
+      start: '1993',
+      final: '2001',
+    });
+
+    expect(resp.status).toEqual(200);
+    expect(resp.body.name).toEqual('Clinton');
+    expect(resp.body.start).toEqual('1993');
+    expect(resp.body.final).toEqual('2001');
+    expect(resp.body.id).not.toBeUndefined();
+  });
   afterAll(() => {
     pool.end();
   });
