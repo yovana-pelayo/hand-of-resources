@@ -39,7 +39,6 @@ describe('zodiacs routes', () => {
   });
   it('PUT /zodiacs/:id should update/ edit zodiac', async () => {
     const resp = await request(app).put('/zodiacs/4').send({ name: 'Libra!' });
-    console.log('resp', resp.body);
     expect(resp.status).toEqual(200);
     expect(resp.body.name).toEqual('Libra!');
   });

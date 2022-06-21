@@ -43,4 +43,4 @@ VALUES ('bull shark','Carcharhinus leucas','Carcharhinidae'),('ghost shark','Cal
 INSERT INTO zodiacs (name, type) VALUES  ('Taurus','Earth'), ('Scorpio', 'Water'), ('Leo', 'Fire'), ('Libra','Air');
 
 INSERT INTO presidents (name, start, final) VALUES 
-('Biden', '2021', 'Current'), ('Trump', '2017', '2021'), ('Obama', '2009', '2017'), ('Clinton', '2002', '2009');
+('Biden', '2021', 'Current'), ('Trump', '2017', '2021'), ('Obama', '2009', '2017'), ('Bush', '2001', '2009');
